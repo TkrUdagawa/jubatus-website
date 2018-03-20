@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>アルゴリズム &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="Jubatus" href="index.html"/>
+        <link rel="next" title="データ変換" href="fv_convert.html"/>
+        <link rel="prev" title="分散モード" href="tutorial_distributed.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Jubatus Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">クイックスタート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">チュートリアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_distributed.html">分散モード</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">アルゴリズム</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classifier-regression">Classifier &amp; Regression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passive-aggressive">Passive Aggressive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iterative-parameter-mixture">Iterative Parameter Mixture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recommender">Recommender</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-representation">Data Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#similarity-calculation">Similarity Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithms">Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inverted-index">inverted_index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lsh">lsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minhash">minhash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#euclid-lsh">euclid_lsh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storage">Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inverted-index-storage">inverted_index_storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bit-index-stroage">bit_index_stroage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-distribution">Data Distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#anomaly">Anomaly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nearest-neighbor">Nearest Neighbor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-structure">Data Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm">Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">lsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">minhash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">euclid_lsh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clustering">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coreset-on-jubatus">Coreset on Jubatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clustering-algorithms">Clustering algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bandit">Bandit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fv_convert.html">データ変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers/index.html">開発者ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubaql/index.html">JubaQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">プロジェクトについて</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>アルゴリズム</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>アルゴリズム<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このページでは、各サーバで使用されているアルゴリズムの詳細について説明する。</p>
+<div class="section" id="classifier-regression">
+<h2>Classifier &amp; Regression<a class="headerlink" href="#classifier-regression" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>回帰問題は，入力 <span class="math">\(x\)</span> に対応する特徴ベクトル <span class="math">\(\phi(x) \in R^m\)</span> に対して，実数値の出力 <span class="math">\(y \in R\)</span> を当てる問題である．
+今回実装したのは，線形回帰モデルである．
+線形回帰モデルでは，パラメータ <span class="math">\(w \in R^m\)</span> を利用して，入力 <span class="math">\(x\)</span> に対して <span class="math">\(\hat{y} = w^T \phi(x) \in R\)</span> で予測する．</p>
+<p>学習時には，分類問題同様，正解データセット <span class="math">\(\{(x_i, y_i)\}\)</span> を利用して，正解データに対して正しく予測できるように重みベクトルを推定する．
+典型的には1800年代に，予測値と実測値との自乗和を最小化させる最小二乗法が提案されている．
+この方法はバッチ処理になるため，今回の調査ではオンライン学習させる方法を利用した．</p>
+</div>
+<div class="section" id="passive-aggressive">
+<h3>Passive Aggressive<a class="headerlink" href="#passive-aggressive" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Passive Aggressive (PA) <a class="reference internal" href="#crammer03a" id="id2">[Crammer03a]</a> <a class="reference internal" href="#crammer03b" id="id3">[Crammer03b]</a> <a class="reference internal" href="#crammer06" id="id4">[Crammer06]</a> は，Support Vector Regression (SVR) のオンライン版であり，同名の分類器を回帰問題に適用したアルゴリズムである．
+PA は， (1) 現在の学習データが与えられた許容範囲 <span class="math">\(epsilon\)</span> 以下で予測する． (2) 分類問題の PA 同様，できる限り現在のパラメータと近い点を選ぶ，という二つの条件を満たすパラメータに更新する．
+すなわち， <span class="math">\(\epsilon\)</span> -intensive hinge loss <span class="math">\(\ell(w; (x, y)) = \max(0, |w^T x - y| - \epsilon)\)</span> に対して，パラメータを
+<span class="math">\(w_{t+1} = w_{t} + \{\mathrm{sign}(y - w^Tx) \ell / |x|^2\} x\)</span> で逐次更新する．</p>
+<p>さらに，大きく更新しすぎるのを防ぐために， PA-I 同様のコストを追加する．
+オリジナルの PA-I では， <span class="math">\(\ell / |x|^2\)</span> の代わりに <span class="math">\(\min(C, \ell / |x|^2)\)</span> で更新するが，回帰問題では <span class="math">\(\ell\)</span> と <span class="math">\(x\)</span> のスケールに対して <span class="math">\(C\)</span> の調整が難しい．
+そこで，  <span class="math">\(\ell\)</span> の標準偏差 <span class="math">\(\sigma\)</span> をオンラインで計測し， <span class="math">\(C\)</span> の値を調整する．
+まず，予測値 <span class="math">\(w^T x\)</span> と 実測値 <span class="math">\(y\)</span> との差， <span class="math">\(e = y - w^T x\)</span> とする．
+<span class="math">\(e\)</span> の平均と二乗の平均の予測値を， <span class="math">\(s_{t+1} = \alpha s_{t}  + (1-\alpha)e\)</span> と <span class="math">\(q_{t+1} = \alpha q_{t} + (1-\alpha)e^2\)</span> で更新する．
+時刻 <span class="math">\(t\)</span> での標準偏差を <span class="math">\(\sigma_t = \sqrt{q_t - s_t^2}\)</span> で予測する．
+実際の更新幅は， <span class="math">\(\{\mathrm{sign}(y - w^Tx) \min(C \sigma, \ell) / |x|^2\} x\)</span> となる．</p>
+</div>
+<div class="section" id="iterative-parameter-mixture">
+<h3>Iterative Parameter Mixture<a class="headerlink" href="#iterative-parameter-mixture" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>分類問題同様，重みベクトルは Iterative Parameter Mixture <a class="reference internal" href="#mcdonald10" id="id5">[McDonald10]</a> <a class="reference internal" href="#mann09" id="id6">[Mann09]</a> で混ぜ合わせる．
+これは，各マシンが単独で学習アルゴリズムを動かし，一定時間，あるいは決められた条件ごとに，すべてのマシンの重みを集めて，それらの平均を計算する．
+平均ベクトルは再度全てのサーバーに配られて，それを初期値と思って学習を再開する．</p>
+<p>もともと分類問題向けのモデル共有方法であるが，線形回帰モデルではモデルパラメータが同じ形をしているので，同様に分散学習させることができる可能性が高い．</p>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<dl class="docutils">
+<dt><strong>PA(PA, PA1, PA2): Passive Aggressive</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="crammer03a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[Crammer03a]</a></td><td>Koby Crammer, Ofer Dekel, Shai Shalev-Shwartz and Yoram Singer, <strong>Online Passive-Aggressive Algorithms</strong>, <em>Proceedings of the Sixteenth Annual Conference on Neural Information Processing Systems (NIPS)</em>, 2003.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="crammer03b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[Crammer03b]</a></td><td>Koby Crammer and Yoram Singer. <strong>Ultraconservative online algorithms for multiclass problems</strong>. <em>Journal of Machine Learning Research</em>, 2003.</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="crammer06" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[Crammer06]</a></td><td>Koby Crammer, Ofer Dekel, Joseph Keshet, Shai Shalev-Shwartz, Yoram Singer, <strong>Online Passive-Aggressive Algorithms</strong>. <em>Journal of Machine Learning Research</em>, 2006.</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>CW:  Confidence Weighted Learning</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="dredze08" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Dredze08]</td><td>Mark Dredze, Koby Crammer and Fernando Pereira, <strong>Confidence-Weighted Linear Classification</strong>, <em>Proceedings of the 25th International Conference on Machine Learning (ICML)</em>, 2008</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="crammer08" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer08]</td><td>Koby Crammer, Mark Dredze and Fernando Pereira, <strong>Exact Convex Confidence-Weighted Learning</strong>, <em>Proceedings of the Twenty Second Annual Conference on Neural Information Processing Systems (NIPS)</em>, 2008</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="crammer09a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer09a]</td><td>Koby Crammer, Mark Dredze and Alex Kulesza, <strong>Multi-Class Confidence Weighted Algorithms</strong>, <em>Empirical Methods in Natural Language Processing (EMNLP)</em>, 2009</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>AROW: Adaptive Regularization of Weight vectors</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="crammer09b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer09b]</td><td>Koby Crammer, Alex Kulesza and Mark Dredze, <strong>Adaptive Regularization Of Weight Vectors</strong>, <em>Advances in Neural Information Processing Systems</em>, 2009</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>NHERD: Normal Herd</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="crammer10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer10]</td><td>Koby Crammer and Daniel D. Lee, <strong>Learning via Gaussian Herding</strong>, <em>Neural Information Processing Systems (NIPS)</em>, 2010.</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>Iterative Parameter Mixture</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="mcdonald10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[McDonald10]</a></td><td>Ryan McDonald, K. Hall and G. Mann, <strong>Distributed Training Strategies for the Structured Perceptron</strong>, <em>North American Association for Computational Linguistics (NAACL)</em>, 2010.</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="mann09" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[Mann09]</a></td><td>Gideon Mann, R. McDonald, M. Mohri, N. Silberman, and D. Walker, <strong>Efficient Large-Scale Distributed Training of Conditional Maximum Entropy Models</strong>, <em>Neural Information Processing Systems (NIPS)</em>, 2009.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="recommender">
+<h2>Recommender<a class="headerlink" href="#recommender" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id7">
+<h3>Overview<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>レコメンダは，類似するデータを推薦したり，データ中の未知の属性を推定することによって推薦するためのモジュールである．</p>
+<p>類似データの推薦操作であるsimilar_rowは，行をクエリとし，その行と類似する行を返す．
+未知属性の推薦操作であるcomplete_rowは，行をクエリとし，その行の属性値を類似する行の情報を用いて推定する．</p>
+</div>
+<div class="section" id="data-representation">
+<h3>Data Representation<a class="headerlink" href="#data-representation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>データはrowとcolumnからなる行列で表現される．各データはuniqueなidで紐付けられたrowデータで表される．各rowデータは，column名とそれに紐付く浮動小数点値からなる．但し，全てのcolumn値は指定されていなくても良い．row名，column名はあらかじめ全て指定されていなくても良い．</p>
+</div>
+<div class="section" id="similarity-calculation">
+<h3>Similarity Calculation<a class="headerlink" href="#similarity-calculation" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>rowデータはベクトルで表現され，ベクトル間の類似度はcos類似度，またはJaccard係数で計算される．</p>
+<p>列ベクトル <span class="math">\(x, y\)</span> が与えられたとする．この時，cos類似度は <span class="math">\(\cos(x, y) = x^T y / |x||y|\)</span> と定義される，但し <span class="math">\(|x|\)</span> はベクトル <span class="math">\(x\)</span> のノルムである．</p>
+<p>Jaccard係数は <span class="math">\(Jac(x, y) = |\cap(x, y)| / |\cup(x, y)|\)</span> として計算される，但し， <span class="math">\(\cap(x, y) = \sum_i \min(x_i, y_i), \cup(x, y) = \sum_i \max(x_i, y_i)\)</span> である．</p>
+<p>なお，登録されていない空の値は <span class="math">\(0\)</span> として扱われる．</p>
+</div>
+<div class="section" id="algorithms">
+<h3>Algorithms<a class="headerlink" href="#algorithms" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="inverted-index">
+<h4>inverted_index<a class="headerlink" href="#inverted-index" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>転置インデクスを利用したレコメンダである．転置インデクスは特徴ID毎にそれが発火した特徴データ集合を格納する．これにより類似度に影響がある特徴ID，データだけを列挙できるようになるので，クエリが疎である場合に高速化をはかることができる．</p>
+</div>
+<div class="section" id="lsh">
+<h4>lsh<a class="headerlink" href="#lsh" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>局所近傍ハッシュ (Locality Sensitive Hash, LSH) を利用したレコメンダである．データ毎にそのデータを表すビット列を計算して，ビット列を格納する．データ間のcos類似度は，ビット間のハミング距離から求められる類似度によって計算できる．</p>
+<p>ベクトル <span class="math">\(x\)</span> に対し, <span class="math">\(k\)</span> 個のランダムなベクトル <span class="math">\(\{a_i\}_{i=1 \cdots k}\)</span> との内積をとり， <span class="math">\(i\)</span> 番目のベクトルとの内積値が正であれば， <span class="math">\(b_i = 1\)</span> , そうでなければ <span class="math">\(b_i=0\)</span> となるようなビットベクトルを作成する．このように作成されたビットベクトルを <span class="math">\(lsh(x)\)</span> とする．また，２つのビットベクトル間 <span class="math">\(a, b\)</span> で一致したビット数を <span class="math">\(match(a, b)\)</span> とする時，
+<span class="math">\(\cos(x, y) = E(match(lsh(x), lsh(y)))\)</span> が成り立つ，但し，期待値はランダムなベクトル生成に関してとるとする．</p>
+<p>これにより，任意のベクトル間のcos類似度計算は，それらのベクトルから生成されたビットベクトル間のビット一致数により近似できる．元々のベクトルに比べ，ビットベクトルは小さくまた固定長であるため通信容量を大幅に削減することができる他，類似度計算を高速に実現することができる．</p>
+</div>
+<div class="section" id="minhash">
+<h4>minhash<a class="headerlink" href="#minhash" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>MinHashを利用したレコメンダである．各データ毎にそのデータを表すビット列を計算して，ビット列を格納する．データ間のJaccard係数は，ビット間のハミング距離から求められる類似度によって計算できる．</p>
+<p>はじめに集合間に対するJaccard係数を説明し，これを実数ベクトル間に対するJaccard係数に拡張する．</p>
+<p>前述のように，2つの集合 <span class="math">\(X, Y\)</span> のJaccard係数を， <span class="math">\(Jac(X, Y) = |\cap(X, Y)|/|\cup(X, Y)|\)</span> とする．MinHashは適当なハッシュ関数を利用し，集合中の各要素のハッシュ値を求め，その最小値を <span class="math">\(m_h(X)\)</span> とした時， <span class="math">\(m_h(X) = m_h(Y)\)</span> となる確率は <span class="math">\(Jac(X, Y)\)</span> と一致することを利用し，このJaccard係数を推定する．複数のハッシュ関数を用意しそれらの間で一致した割合を求めると，それは <span class="math">\(Jac(X, Y)\)</span> に近づく．また，実際のハッシュ値を保持せずに，ハッシュ値の最下位のビットのみを記録したとしても，衝突分を差し引くことで，Jaccard係数を求めることができる <a class="reference internal" href="#ping2010" id="id8">[Ping2010]</a> ．今回はこの方法を利用した．</p>
+<p>次に各要素が正の実数値を持つ場合に拡張する <span class="math">\(\cap(x, y) = \sum_i \min(x_i, y_i), \cup(x, y) = \sum_i \max(x_i, y_i)\)</span> と定義する．この時，各要素がその値の個数だけ存在するようなハッシュ関数を利用する必要がある．カラム名のハッシュ値を <span class="math">\(h\)</span> とした時， <span class="math">\(-\log(h) / x_i\)</span> をこの要素のハッシュ値とする．このハッシュ値で計算された場合，minhash値は一致する．</p>
+</div>
+<div class="section" id="euclid-lsh">
+<h4>euclid_lsh<a class="headerlink" href="#euclid-lsh" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>ユークリッド距離のための局所近傍ハッシュを利用したレコメンダである．複数テーブルを用いた効率的な探索と，cos類似度の局所近傍ハッシュとユークリッドノルム値を用いたリランキングによってユークリッド空間における近傍探索を実現する．</p>
+<p>ユークリッド空間における局所近傍ハッシュは <a class="reference internal" href="#datar2004" id="id9">[Datar2004]</a> で提案されたものを用いる．cos類似度の局所近傍ハッシュと同様に <span class="math">\(k\)</span> 個のランダムなベクトルとの内積を取った後，それぞれを適当な幅 <span class="math">\(b\)</span> 以下のランダムな量子化幅で整数値に量子化し，得られた <span class="math">\(k\)</span> 個の整数を <span class="math">\(L\)</span> 個に等分して，別々のハッシュテーブルに記録する．探索の際には同様に <span class="math">\(k\)</span> 個の整数を計算し，<span class="math">\(L\)</span> 個のハッシュテーブルから表引きを行う．実際には実装上の工夫 <a class="reference internal" href="#andoni2005" id="id10">[Andoni2005]</a> によりこの操作を単一のハッシュテーブルで実現する．また，小さな <span class="math">\(L\)</span> に対しても高い再現率を達成するために，各ハッシュ値が１だけ異なるようなエントリーも見るマルチプローブ探索 <a class="reference internal" href="#lv2007" id="id11">[Lv2007]</a> を実装している．</p>
+<p><a class="reference internal" href="#datar2004" id="id12">[Datar2004]</a> の手法では得られたデータと入力データとの間のユークリッド距離が得られない．そこでJubatusの実装では，最初に計算した <span class="math">\(k\)</span> 個の内積値を正負でビット化したもの（cos類似度のハッシュ値と同じもの）と元のベクトルのユークリッドノルムも保存しておく．cos類似度のハッシュを用いることで，表引きによって得られたデータ <span class="math">\(x\)</span> と入力データ <span class="math">\(q\)</span> の間のcos類似度 <span class="math">\(\cos(x, q)\)</span> が推定できる．さらにそれぞれのユークリッドノルム <span class="math">\(\lVert x\lVert, \lVert q\lVert\)</span> を用いると，これらの間のユークリッド距離は式 <span class="math">\(\lVert x-q\lVert^2=\lVert x\lVert^2+\lVert q\lVert^2-2\cos(x, q)\)</span> によって計算できる．こうして得られたユークリッド距離の推定値を用いて，表引きして得られたデータ集合をソートし直す．</p>
+<p>ユークリッド距離は類似度ではなく距離であり，値が小さくなるほど近いという意味になる．対応する類似度に標準的なものがないため，Jubatusではユークリッド距離に <span class="math">\(-1\)</span> を掛けたものを類似度として用いる．</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>References<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<dl class="docutils">
+<dt><strong>minhash: b-Bit Minwise Hash</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="ping2010" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[Ping2010]</a></td><td>Ping Li, Arnd Christian Konig, <strong>b-Bit Minwise Hashing</strong>, <em>WWW</em>, 2010</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>euclid_lsh: Euclidean LSH</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="datar2004" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Datar2004]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> Mayur Datar, Nicole Immorlica, Piotr Indyk, Vahab S. Mirokni, <strong>Locality-Sensitive Hashing Scheme Based on p-Stable Distributions</strong>, <em>SCG</em>, 2004.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="andoni2005" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[Andoni2005]</a></td><td>Alex Andoni, <strong>LSH Algorithm and Implementation (E2LSH)</strong>, <a class="reference external" href="http://www.mit.edu/~andoni/LSH/">http://www.mit.edu/~andoni/LSH/</a></td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="lv2007" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[Lv2007]</a></td><td>Qin Lv, William Josephson, Zhe Wang, Moses Charikar, Kai Li, <strong>Multi-Probe LSH: Efficient Indexing for High-Dimensional Similarity Search</strong>, <em>VLDB</em>, 2007.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="inverted-index-storage">
+<h4>inverted_index_storage<a class="headerlink" href="#inverted-index-storage" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>転置インデクスを格納するインデクスである．inverted_indexで利用される．文字列生成のオーバーヘッドを削減するために内部では，カラムID文字列は整数IDに内部で変換され保存される．</p>
+</div>
+<div class="section" id="bit-index-stroage">
+<h4>bit_index_stroage<a class="headerlink" href="#bit-index-stroage" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>ビット列からなるデータ集合を格納するインデクスである．lshとmin_hashで利用される．ビット間の類似度計算部分はビット操作によって実現され高速である．</p>
+</div>
+</div>
+<div class="section" id="data-distribution">
+<h3>Data Distribution<a class="headerlink" href="#data-distribution" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>recommenderでは全ての情報をストレージに格納する．</p>
+<p>各データは，そのrow IDに従い，コンシステントハッシング(CHT)を用いて同じIDは必ず同じサーバーに振り分けられるようになっており，IDを含む全ての操作は同じサーバーで処理される．</p>
+<p>各ストレージでは，サーバー固有である差分情報と，全サーバーで共有する部分に分けて情報を保持する．前者をdiff，後者をmixedとして以降表す．一般にmixedは全サーバーの情報を保持しているので，diffと比べて大きい．</p>
+<p>update_row操作ではdiffのみを更新する．similar_row, complete_row操作では,diffとmixedの両方を参照して操作を行う.もし,diffに情報があるrowであれば，diffの方が情報が新しいのでdiffの情報を採用する．あるIDに関する情報はCHTを利用することで同じサーバーに必ず集められる．</p>
+<p>mix操作時には各サーバーからdiffをあつめ,それらを合わせた上で，各サーバーに配り直し,mixedに更新として適用する.そしてdiffを空に初期化する操作を施す．diffを集め始めてから，各サーバーに配り直されるまでの間に各サーバーに施された変更は全て破棄される．この破棄分をバッファを２つ持つなどして対応することは今後の課題である．</p>
+<p>inverted_index_storageではdiff, mixedは転置ファイルとなっており，bit_index_storageでは各row毎にbit列を保持する.</p>
+</div>
+</div>
+<div class="section" id="anomaly">
+<h2>Anomaly<a class="headerlink" href="#anomaly" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id14">
+<h3>References<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<dl class="docutils">
+<dt><strong>Local Outlier Factor</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="breunig2000" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Breunig2000]</td><td>Markus M. Breunig, Hans-Peter Kriegel, Raymond T. Ng, Jörg Sander, <strong>LOF: Identifying Density-Based Local Outliers</strong>, SIGMOD, 2000.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="nearest-neighbor">
+<h2>Nearest Neighbor<a class="headerlink" href="#nearest-neighbor" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id15">
+<h3>Overview<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>近傍探索は，登録されたデータ集合の中から，クエリとして与えられたデータに類似したものを高速に取り出す問題である．
+この問題はレコメンダを用いても解くことができるが，近傍探索のみが目的ならば，登録時のもともとのデータ表現など推薦に必要な一部の情報を保存する必要がない．
+そこでレコメンダから近傍探索に必要ない推薦に関する機能を削ったものがJubatusの近傍探索器である．</p>
+<p>近傍探索のアルゴリズム実装もレコメンダのアルゴリズムとは異なる．
+特に近傍探索のアルゴリズムはpush/pull型のMIXをサポートしている．</p>
+</div>
+<div class="section" id="data-structure">
+<h3>Data Structure<a class="headerlink" href="#data-structure" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>近傍探索のアルゴリズムはすべてハッシュ法をベースにしている．
+カラム指向のデータ構造を用いており，各アイテムごとにバージョン情報を保持している．
+push/pull型のMIXにおいて，アイテム単位のバージョン情報を用いてモデルの差分を生成してプロセス間で交換する。</p>
+</div>
+<div class="section" id="algorithm">
+<h3>Algorithm<a class="headerlink" href="#algorithm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id16">
+<h4>lsh<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>コサイン類似度を近似する局所近傍ハッシュ(Locality Sensitive Hash, LSH)を利用した近傍探索器である．アルゴリズムの詳細はレコメンダのlshと同様である．</p>
+</div>
+<div class="section" id="id17">
+<h4>minhash<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>b-Bit Minwise Hashを用いた近傍探索記である。アルゴリズムの詳細はレコメンダのminhashと同様である。</p>
+</div>
+<div class="section" id="id18">
+<h4>euclid_lsh<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>ユークリッド距離について類似するアイテムを取得するための近傍探索器である．近傍探索器のeuclid_lshはレコメンダのものとは大きく実装が異なる．</p>
+<p>近傍探索器のeuclid_lshではコサイン類似度を近似するLSHを用いてユークリッド距離を近似計算する．登録された各データに対してLSHが出力するビット列とデータベクトルのユークリッドノルム値を保存する．データベクトル <span class="math">\(x_1\)</span> と <span class="math">\(x_2\)</span> のなす角 <span class="math">\(\theta(x_1, x_2)\)</span> は，これらの <span class="math">\(r\)</span> ビットLSH値の間のハミング距離を <span class="math">\(d_H(x_1, x_2)\)</span> として <span class="math">\(\theta(x_1, x_2)\simeq{d_H(x_1, x_2)\over r}\cdot2\pi\)</span> で近似できる．これとデータベクトルのユークリッドノルム <span class="math">\(\lVert x_1\lVert\)</span>, <span class="math">\(\lVert x_2\lVert\)</span> を用いて次式でユークリッド距離を計算することができる．</p>
+<div class="math">
+\[\lVert x_1-x_2\lVert^2 = \lVert x_1\lVert^2 + \lVert x_2\lVert^2 - 2\lVert x_1\lVert \lVert x_2\lVert \cos\theta(x_1, x_2).\]</div>
+<p>nearest_neighborにおけるeuclid_lshは，各データごとにLSHのハッシュ値とノルム値を保存する．クエリ時には全ハッシュ値・ノルム値を走査して上式に従ってユークリッド距離を計算し，距離が小さいものから指定した個数だけ取得する．</p>
+</div>
+</div>
+</div>
+<div class="section" id="clustering">
+<h2>Clustering<a class="headerlink" href="#clustering" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id19">
+<h3>Overview<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>クラスタリング問題とはデータ集合を類似したデータの部分集合（クラスタ）に分割する問題である．
+Jubatusではコアセットと呼ばれる技術を用いてオンライン分散のクラスタリングを実現している．
+コアセット法では，データ集合から少数のデータ（コアセット）を上手にサンプリングする．
+この操作をここではコアセットの圧縮と呼ぶことにする．
+圧縮されたコアセットに対してクラスタリングを行うことで，計算コストを抑えながら良い精度のクラスタリングを実現する．</p>
+<p>Jubatusではk-平均法と混合ガウスモデル(GMM)の二種類のクラスタリング手法をサポートしている．</p>
+</div>
+<div class="section" id="coreset-on-jubatus">
+<h3>Coreset on Jubatus<a class="headerlink" href="#coreset-on-jubatus" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コアセットは，データ集合を要約するような部分集合である．クラスタリングに用いるコアセット法では，小さな部分集合に対するクラスタリングがもとのデータ全集合に対するクラスタリングを近似するように部分集合（コアセット）を選ぶ．
+コアセットを用いたクラスタリングについては， <a class="reference internal" href="#feldman2011b" id="id20">[Feldman2011b]</a> において混合ガウスモデルへの適用が提案されており，さらに <a class="reference internal" href="#feldman2011a" id="id21">[Feldman2011a]</a> においてより広い範囲のクラスタリング問題に適用できる理論が構築されている．</p>
+<p>コアセットを用いたクラスタリングをオンラインで学習するために，Jubatusでは次のようにしてコアセットを階層的に構築する．
+始めは1段目のコアセットを構築する．一定数データが貯まる度にそれらを圧縮してコアセットを作る．
+コアセットが一定数集まったら，それらを圧縮して2段目のコアセットを作る．
+さらに2段目のコアセットが一定数集まったらそれらを圧縮して3段目のコアセットを作る．
+この操作を繰り返して，多段にコアセットを構築していく．
+このとき総データ数に対してコアセット全体のサイズは漸近的に対数オーダーで成長する．
+Jubatusのコアセットクラスタリングでは，さらにコアセットの階層数の上限を設定することができる．
+この場合，最終段（N段目とする）で構築されたコアセットは(N+1)段目に回さず，同じ段にとどめ続ける．</p>
+<p>コアセットのMIXでは単純にプロセス間でコアセットを交換する．他プロセスから受け取ったコアセットは上記のオンライン更新には用いられず，後述のクラスタリングにのみ利用される．</p>
+</div>
+<div class="section" id="clustering-algorithms">
+<h3>Clustering algorithms<a class="headerlink" href="#clustering-algorithms" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コアセットを圧縮するタイミングで，圧縮後のコアセットを用いてクラスタリングを実行する．
+クラスタリングの際には，既存のコアセットや他プロセスからMIXで受け取ったコアセットも用いる．
+Jubatusではこうして得られたクラスタリング結果（クラスタ中心や重みの情報）を保持して，ANALYZEの際にはこれを用いる．</p>
+<p>コアセットを用いた混合ガウスモデルは <a class="reference internal" href="#feldman2011b" id="id22">[Feldman2011b]</a> で提案されている手法である．
+k-平均法はこれを参考にしながら， <a class="reference internal" href="#feldman2011a" id="id23">[Feldman2011a]</a> で構築されたより一般的な理論をk-平均法に適用したものを実装している．</p>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<table class="docutils citation" frame="void" id="feldman2011a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Feldman2011a]</td><td><em>(<a class="fn-backref" href="#id21">1</a>, <a class="fn-backref" href="#id23">2</a>)</em> <ol class="last upperalpha simple" start="4">
+<li>Feldman, M. Langberg. 「A Unified Framework for Approximating and Clustering Data.」 STOC 『11: Proceedings of the 43rd annual ACM Symposium on Theory of Computing, pp. 569-578.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="feldman2011b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Feldman2011b]</td><td><em>(<a class="fn-backref" href="#id20">1</a>, <a class="fn-backref" href="#id22">2</a>)</em> <ol class="last upperalpha simple" start="4">
+<li>Feldman, M. Faulkner, A. Krause. 「Scalable Training of Mixture Models via Coresets.」 Advances in Neural Information Processing Systems 24, 2011.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="bandit">
+<h2>Bandit<a class="headerlink" href="#bandit" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id24">
+<h3>Reference<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<dl class="docutils">
+<dt><strong>Epsilon Greedy, Softmax</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="sutton1998" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Sutton1998]</td><td><ol class="first last upperalpha simple" start="18">
+<li><ol class="first upperalpha" start="19">
+<li>Sutton, A. G. Barto, 「Introduction to Reinforcement Learning.」, MIT Press, 1998.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>Epsilon decreasing (Greedy Mix)</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="bianchi1998" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Bianchi1998]</td><td><ol class="first last upperalpha simple" start="14">
+<li>Cesa-Bianchi, P. Fischer, 「Finite-time Regret Bounds for the Multiarmed Bandit Problem」, ICML, 1998.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>UCB1</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="auer2002a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Auer2002a]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Auer, N. Cesa-Bianchi, P. Fischer, 「Finite Analysis of the Multiarmed bandit problem.」 Machine Learning, Vol. 47, pp. 235-256, 2002.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>EXP3</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="auer2002b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Auer2002b]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Auer, N. Cesa-Bianchi, Y. Freund, R. E. Schapire, 「Gambling in a rigged casino: The adversarial multi-arm bandit problem.」 FOCS’95, pp. 322-331, 1995.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>Thompson Sampling</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="thompson1933" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Thompson1933]</td><td>Thompson, William R. “On the likelihood that one unknown probability exceeds another in view of the evidence of two samples.” Biometrika 25.3/4 (1933): 285-294.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fv_convert.html" class="btn btn-neutral float-right" title="データ変換" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial_distributed.html" class="btn btn-neutral" title="分散モード" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

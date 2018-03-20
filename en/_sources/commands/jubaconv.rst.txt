@@ -1,0 +1,103 @@
+jubaconv
+========
+
+Synopsis
+--------------------------------------------------
+
+.. code-block:: shell
+
+  jubaconv [options ...]
+
+Description
+--------------------------------------------------
+
+``jubaconv`` is a tool to test your fv_converter configuration.
+
+``jubaconv`` simulates the internal behavior of fv_converter and displays the result of conversion on the command-line.
+
+As ``jubaconv`` only processes 1 record, ``global_weight`` of string feature extraction rules (``string_rules``) will not be calculated.
+Use :doc:`../api/api_weight` if you need a simulation including ``global_weight``.
+
+Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``[]`` indicates the default value.
+
+.. program:: jubaconv
+
+.. option:: -i <format>, --input-format <format>
+
+   Format of the input. [json]
+
+   ``<format>`` must be one of ``datum`` or ``json``.
+
+.. option:: -o <format>, --output-format <format>
+
+   Format of the output. [fv]
+
+   ``<format>`` must be one of ``fv``, ``datum`` or ``json``.
+
+.. option:: -c <config>, --conf <config>
+
+   Jubatus server configuration file in JSON.
+
+   This option must be given only if ``fv`` is specified for :option:`-o`.
+
+* Note: If the input format is ``json``, we have to add a slash symbol ``/`` at the start of ``key`` in jubatus server config files.
+    * If the input format is ``datum``: ``"num_rules" : [{"key": "number", "type": "num"}]``
+    * If the input format is ``json``:  ``"num_rules" : [{"key": "/number", "type": "num"}]``
+
+File Formats
+--------------------------------------------------
+
+Input
+~~~~~
+
+Supported formats are ``datum`` and ``json``.
+See the Examples section for details.
+
+* ``datum`` is a Datum-styled JSON data structure.
+  The root must have 3 keys (``string_values``, ``num_values`` and ``binary_values``), and whose values must be a flat object, whose keys are string and values are string (for ``string_values`` and ``binary_values``) or integer/float (for ``num_values``).
+
+* ``json`` is an arbitrary JSON data structure.
+  JSON data structure will be flatten to key-value format by joining keys with ``/`` separator.
+
+Output
+~~~~~~
+
+Supported formats are ``fv``, ``datum`` and ``json``.
+
+* ``fv`` prints the feature vectors extracted from the input record by fv_converter.
+
+* ``datum`` prints the input record converted to Datum as Datum-styled JSON data structure.
+
+* ``json`` pretty-prints the input record without any conversion.
+  This can only be used if the input format is ``json``.
+
+Examples
+--------------------------------------------------
+
+.. code-block:: none
+
+   $ cat data.json
+   { "message": "hello world", "age": 31 }
+
+   $ jubaconv -i json -o fv -c /opt/jubatus/share/jubatus/example/config/classifier/pa.json < data.json
+   /message$hello world@str#bin/bin: 1
+   /age@num: 31
+
+   $ cat datum.json
+   {
+     "string_values": {
+       "hello": "world"
+     },
+     "num_values": {
+       "age": 31
+     },
+     "binary_values": {
+     }
+   }
+
+   $ jubaconv -i datum -o fv -c /opt/jubatus/share/jubatus/example/config/classifier/pa.json < datum.json
+   hello$world@str#bin/bin: 1
+   age@num: 31

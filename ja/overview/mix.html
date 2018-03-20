@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>分散学習機構Mixの概念説明 &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="Jubatus" href="../index.html"/>
+        <link rel="up" title="Jubatus Overview" href="index.html"/>
+        <link rel="next" title="クイックスタート" href="../quickstart.html"/>
+        <link rel="prev" title="アーキテクチャ概要" href="architecture.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="../_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Jubatus Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="feature.html">Jubatusの特徴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_learning.html">Jubatusの機械学習ラインナップと利用シーン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">アーキテクチャ概要</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">分散学習機構Mixの概念説明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Mixの概念</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Mixによるモデル情報更新のイメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Mixにおける注意点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">クイックスタート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">チュートリアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_distributed.html">分散モード</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../method.html">アルゴリズム</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fv_convert.html">データ変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/index.html">開発者ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubaql/index.html">JubaQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">プロジェクトについて</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Jubatus Overview</a> &raquo;</li>
+        
+      <li>分散学習機構Mixの概念説明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mix">
+<h1>分散学習機構Mixの概念説明<a class="headerlink" href="#mix" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>本項では、分散学習機構であるMixの概念について説明します。</p>
+<div class="section" id="id1">
+<h2>Mixの概念<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>データの分析を行う際の分散処理環境の方式として、分析に使用するデータそのものを複数のサーバノード間で複製し・共有する方式を採用する場合、データサイズが膨大になります。</p>
+<p>Jubatusでは、データそのものを共有するのではなく、分析に必要なモデル情報（データを分析した結果）のみを交換・共有する方式を採用しています。
+一般的にモデル情報はデータそのものよりもはるかに小さいサイズで格納することが可能です。</p>
+<p>Jubatusでは、このモデル情報を各ノードが格納し、データに基づいたモデル情報の更新を行います。また、そのモデル情報に基づくデータの分析を行います。</p>
+<p>各サーバノードのみでモデル情報が更新される場合、各サーバノードのモデル情報には差異が生じます。そのため、各サーバーノード間でのモデル情報の交換と共有を行い、システム全体でモデル情報の更新を行う必要があります。
+Mixとは、各サーバーノード間のモデル情報の交換によるモデル情報の共有を行う操作を示します。</p>
+</div>
+<div class="section" id="id2">
+<h2>Mixによるモデル情報更新のイメージ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでは、サーバノードが3台の分散環境において「与えられたデータの平均値を計算する処理」を例として、Mix操作におけるモデル情報更新のイメージを説明します。</p>
+<p>サーバノードA、B、Cそれぞれに、以下のような異なる学習データが与えられたとします。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="28%" />
+<col width="28%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">サーバノードA</th>
+<th class="head">サーバノードB</th>
+<th class="head">サーバノードC</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="4">データ</td>
+<td>7.0</td>
+<td>12.0</td>
+<td>9.0</td>
+</tr>
+<tr class="row-odd"><td>3.0</td>
+<td>18.0</td>
+<td>15.0</td>
+</tr>
+<tr class="row-even"><td>－</td>
+<td>15.0</td>
+<td>6.0</td>
+</tr>
+<tr class="row-odd"><td>－</td>
+<td>5.0</td>
+<td>－</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>上記の学習データから各サーバノードで平均値を計算し、各サーバノードでは以下のようなモデル情報を保持することとなります。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="26%" />
+<col width="26%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">モデル情報</th>
+<th class="head">サーバノードA</th>
+<th class="head">サーバノードB</th>
+<th class="head">サーバノードC</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>合計値</td>
+<td>10.0</td>
+<td>50.0</td>
+<td>30.0</td>
+</tr>
+<tr class="row-odd"><td>データ数</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td>平均値</td>
+<td>5.0</td>
+<td>12.5</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>この例では、全学習データの合計値が90.0、データ数が9となるため、平均値は10.0となります。</p>
+<p>クライアントからの平均値を求める要求が運よくサーバノードCに割り当てられた場合、全学習データの平均値と同じ10.0という値を得ることができますが、クライアントからの要求がサーバノードAもしくはBに割り当てられた場合、正しい結果を得ることができません。</p>
+<p>現在のMix操作では、サーバノードのどれか1台が代表となり、自動的に各サーバーノードが保持するモデル情報を取得し、モデル情報の更新を行います。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="22%" />
+<col width="22%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">モデル情報</th>
+<th class="head">サーバノードA</th>
+<th class="head">サーバノードB</th>
+<th class="head">サーバノードC（Mix代表）</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>合計値</td>
+<td>10.0</td>
+<td>50.0</td>
+<td>90.0（＝10.0+50.0+30.0）</td>
+</tr>
+<tr class="row-odd"><td>データ数</td>
+<td>2</td>
+<td>4</td>
+<td>9（＝2+4+3）</td>
+</tr>
+<tr class="row-even"><td>平均値</td>
+<td>5.0</td>
+<td>12.5</td>
+<td>10.0（＝90.0/9）</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>その後、Mix操作の代表となったサーバノードから、残りのサーバノードに対して更新されたモデル情報を共有することで、全サーバノードのモデル情報が同一の内容に更新されます。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="22%" />
+<col width="22%" />
+<col width="37%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">モデル情報</th>
+<th class="head">サーバノードA</th>
+<th class="head">サーバノードB</th>
+<th class="head">サーバノードC（Mix代表）</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>合計値</td>
+<td>90.0</td>
+<td>90.0</td>
+<td>90.0</td>
+</tr>
+<tr class="row-odd"><td>データ数</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr class="row-even"><td>平均値</td>
+<td>10.0</td>
+<td>10.0</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>以上のように、学習データそのものを共有するのではなく、各サーバノードで得られたモデル情報のみを交換・共有するMix操作により、全サーバノードのモデル情報が同一の内容となります。</p>
+</div>
+<div class="section" id="id3">
+<h2>Mixにおける注意点<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Jubatusでは、上記に説明したMix操作により、モデル情報を緩やかに共有します。そのため、同一時刻において同じモデルが全サーバノードで共有されていることが保証されていないという制限があります。
+言い換えれば、分散環境として構築したJubatusにおいては、クライアントから同一の分析要求を行っても（Mix操作のタイミング前後においては）、必ずしも同一の分析結果が得られるという保証はありません。
+そのため、サーバノード間で密なデータ交換が必要なシステムや、正確な結果が必要となるシステム、トランザクションが必要なシステムには、Jubatusは向いていません。</p>
+<p>また、サーバノード数を増やすことにより分析処理性能をスケールアウトすることが可能ですが、その反面、Mix操作によるサーバノード間のモデル情報の交換・共有のための処理時間が増加することとなります。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../quickstart.html" class="btn btn-neutral float-right" title="クイックスタート" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="アーキテクチャ概要" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>STATUS &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Jubatus" href="../index.html"/>
+        <link rel="up" title="JubaQL Syntax" href="jubaql_syntax.html"/>
+        <link rel="next" title="SHUTDOWN" href="syntax_shutdown.html"/>
+        <link rel="prev" title="STOP PROCESSING" href="syntax_stop.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="../_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_distributed.html">Distributed Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fv_convert.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../method.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">JubaQL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">JubaQL Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">JubaQL Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">JubaQL Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="jubaql_syntax.html">JubaQL Syntax</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_datasource.html">CREATE DATASOURCE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_model.html">CREATE MODEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_stream_select.html">CREATE STREAM FROM SELECT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_stream_analyze.html">CREATE STREAM FROM ANALYZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_stream_window.html">CREATE STREAM FROM SLIDING WINDOW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_function.html">CREATE FUNCTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_trigger.html">CREATE TRIGGER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_update_model.html">UPDATE MODEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_analyze.html">ANALYZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_start.html">START PROCESSING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_stop.html">STOP PROCESSING</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">STATUS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_shutdown.html">SHUTDOWN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About This Project</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">JubaQL</a> &raquo;</li>
+        
+          <li><a href="jubaql_syntax.html">JubaQL Syntax</a> &raquo;</li>
+        
+      <li>STATUS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="status">
+<h1>STATUS<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h1>
+<p>Syntax:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">STATUS</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jubaql</span><span class="o">&gt;</span> <span class="n">STATUS</span>
+<span class="n">STATUS</span>
+<span class="p">{</span>
+  <span class="s2">&quot;sources&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;ds&quot;</span><span class="p">:</span><span class="s2">&quot;Initialized&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;models&quot;</span><span class="p">:{</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">jubaql</span><span class="o">&gt;</span> <span class="n">STATUS</span>
+<span class="n">STATUS</span>
+<span class="p">{</span>
+  <span class="s2">&quot;sources&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;ds&quot;</span><span class="p">:</span><span class="s2">&quot;Finished&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;models&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;test1&quot;</span><span class="p">:</span><span class="s2">&quot;JubatusYarnApplicationStatus({192.168.0.62_20586={SHR=5316,</span>
+    <span class="n">clock_time</span><span class="o">=</span><span class="mi">1426660333</span><span class="p">,</span> <span class="n">PROGNAME</span><span class="o">=</span><span class="n">jubaclassifier_proxy</span><span class="p">,</span>
+    <span class="n">session_pool_expire</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">uptime</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">pid</span><span class="o">=</span><span class="mi">15011</span><span class="p">,</span> <span class="n">logdir</span><span class="o">=</span><span class="p">,</span>
+    <span class="n">interconnect_timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="o">...</span><span class="p">])</span><span class="s2">&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="explanation">
+<h2>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">STATUS</span></code> lists information about data sources and models defined in the current session.</p>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The state of data sources can be one of <code class="docutils literal"><span class="pre">Initialized</span></code> (has not run yet), <code class="docutils literal"><span class="pre">Running</span></code> (is currently processing data) or <code class="docutils literal"><span class="pre">Finished</span></code> (has ended processing with success or failure).</li>
+<li>The <code class="docutils literal"><span class="pre">&quot;models&quot;</span></code> part only lists information about Jubatus instances that have come up successfully. (Instances that failed to start up are not shown.) The status for each model contains the information returned by the <code class="docutils literal"><span class="pre">get_status()</span></code> RPC call on Jubatus proxy and instances. In particular, there is internal information (IP addresses, parameters, PIDs etc.) contained in this output.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="syntax_shutdown.html" class="btn btn-neutral float-right" title="SHUTDOWN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="syntax_stop.html" class="btn btn-neutral" title="STOP PROCESSING" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

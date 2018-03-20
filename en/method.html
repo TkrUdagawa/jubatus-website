@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Algorithms &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Jubatus" href="index.html"/>
+        <link rel="next" title="Commands" href="commands/index.html"/>
+        <link rel="prev" title="Data Conversion" href="fv_convert.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_distributed.html">Distributed Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fv_convert.html">Data Conversion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classifier-regression">Classifier &amp; Regression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#recommender">Recommender</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#anomaly">Anomaly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#clustering">Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bandit">Bandit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubaql/index.html">JubaQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">About This Project</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Algorithms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="algorithms">
+<h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
+<p>In this page, we show the list of references for each algorithms.</p>
+<div class="section" id="classifier-regression">
+<h2>Classifier &amp; Regression<a class="headerlink" href="#classifier-regression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>PA(PA, PA1, PA2): Passive Aggressive</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="crammer03a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer03a]</td><td>Koby Crammer, Ofer Dekel, Shai Shalev-Shwartz and Yoram Singer, <strong>Online Passive-Aggressive Algorithms</strong>, <em>Proceedings of the Sixteenth Annual Conference on Neural Information Processing Systems (NIPS)</em>, 2003.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="crammer03b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer03b]</td><td>Koby Crammer and Yoram Singer. <strong>Ultraconservative online algorithms for multiclass problems</strong>. <em>Journal of Machine Learning Research</em>, 2003.</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="crammer06" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer06]</td><td>Koby Crammer, Ofer Dekel, Joseph Keshet, Shai Shalev-Shwartz, Yoram Singer, <strong>Online Passive-Aggressive Algorithms</strong>. <em>Journal of Machine Learning Research</em>, 2006.</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>CW:  Confidence Weighted Learning</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="dredze08" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Dredze08]</td><td>Mark Dredze, Koby Crammer and Fernando Pereira, <strong>Confidence-Weighted Linear Classification</strong>, <em>Proceedings of the 25th International Conference on Machine Learning (ICML)</em>, 2008</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="crammer08" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer08]</td><td>Koby Crammer, Mark Dredze and Fernando Pereira, <strong>Exact Convex Confidence-Weighted Learning</strong>, <em>Proceedings of the Twenty Second Annual Conference on Neural Information Processing Systems (NIPS)</em>, 2008</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="crammer09a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer09a]</td><td>Koby Crammer, Mark Dredze and Alex Kulesza, <strong>Multi-Class Confidence Weighted Algorithms</strong>, <em>Empirical Methods in Natural Language Processing (EMNLP)</em>, 2009</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>AROW: Adaptive Regularization of Weight vectors</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="crammer09b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer09b]</td><td>Koby Crammer, Alex Kulesza and Mark Dredze, <strong>Adaptive Regularization Of Weight Vectors</strong>, <em>Advances in Neural Information Processing Systems</em>, 2009</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>NHERD: Normal Herd</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="crammer10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Crammer10]</td><td>Koby Crammer and Daniel D. Lee, <strong>Learning via Gaussian Herding</strong>, <em>Neural Information Processing Systems (NIPS)</em>, 2010.</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>Iterative Parameter Mixture</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="mcdonald10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[McDonald10]</td><td>Ryan McDonald, K. Hall and G. Mann, <strong>Distributed Training Strategies for the Structured Perceptron</strong>, <em>North American Association for Computational Linguistics (NAACL)</em>, 2010.</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="mann09" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Mann09]</td><td>Gideon Mann, R. McDonald, M. Mohri, N. Silberman, and D. Walker, <strong>Efficient Large-Scale Distributed Training of Conditional Maximum Entropy Models</strong>, <em>Neural Information Processing Systems (NIPS)</em>, 2009.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="recommender">
+<h2>Recommender<a class="headerlink" href="#recommender" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>References<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>minhash: b-Bit Minwise Hash</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="ping2010" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Ping2010]</td><td>Ping Li, Arnd Christian Konig, <strong>b-Bit Minwise Hashing</strong>, <em>WWW</em>, 2010</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>euclid_lsh: Euclidean LSH</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="datar2004" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Datar2004]</td><td>Mayur Datar, Nicole Immorlica, Piotr Indyk, Vahab S. Mirokni, <strong>Locality-Sensitive Hashing Scheme Based on p-Stable Distributions</strong>, <em>SCG</em>, 2004.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="andoni2005" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Andoni2005]</td><td>Alex Andoni, <strong>LSH Algorithm and Implementation (E2LSH)</strong>, <a class="reference external" href="http://www.mit.edu/~andoni/LSH/">http://www.mit.edu/~andoni/LSH/</a></td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="lv2007" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Lv2007]</td><td>Qin Lv, William Josephson, Zhe Wang, Moses Charikar, Kai Li, <strong>Multi-Probe LSH: Efficient Indexing for High-Dimensional Similarity Search</strong>, <em>VLDB</em>, 2007.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="anomaly">
+<h2>Anomaly<a class="headerlink" href="#anomaly" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>References<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>Local Outlier Factor</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="breunig2000" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Breunig2000]</td><td>Markus M. Breunig, Hans-Peter Kriegel, Raymond T. Ng, Jörg Sander, <strong>LOF: Identifying Density-Based Local Outliers</strong>, SIGMOD, 2000.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="clustering">
+<h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>References<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>Clustering</strong></dt>
+<dd><table class="first docutils citation" frame="void" id="feldman2011a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Feldman2011a]</td><td><ol class="first last upperalpha simple" start="4">
+<li>Feldman, M. Langberg. “A Unified Framework for Approximating and Clustering Data.” STOC ‘11: Proceedings of the 43rd annual ACM Symposium on Theory of Computing, pp. 569-578.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="last docutils citation" frame="void" id="feldman2011b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Feldman2011b]</td><td><ol class="first last upperalpha simple" start="4">
+<li>Feldman, M. Faulkner, A. Krause. “Scalable Training of Mixture Models via Coresets.” Advances in Neural Information Processing Systems 24, 2011.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="bandit">
+<h2>Bandit<a class="headerlink" href="#bandit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>References<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>Epsilon Greedy, Softmax</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="sutton1998" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Sutton1998]</td><td><ol class="first last upperalpha simple" start="18">
+<li><ol class="first upperalpha" start="19">
+<li>Sutton, A. G. Barto, “Introduction to Reinforcement Learning.”, MIT Press, 1998.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>Epsilon decreasing (Greedy Mix)</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="bianchi1998" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Bianchi1998]</td><td><ol class="first last upperalpha simple" start="14">
+<li>Cesa-Bianchi, P. Fischer, “Finite-time Regret Bounds for the Multiarmed Bandit Problem”, ICML, 1998.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>UCB1</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="auer2002a" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Auer2002a]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Auer, N. Cesa-Bianchi, P. Fischer, “Finite Analysis of the Multiarmed bandit problem.” Machine Learning, Vol. 47, pp. 235-256, 2002.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>EXP3</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="auer2002b" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Auer2002b]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Auer, N. Cesa-Bianchi, Y. Freund, R. E. Schapire, “Gambling in a rigged casino: The adversarial multi-arm bandit problem.” FOCS‘95, pp. 322-331, 1995.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd>
+<dt><strong>Thompson Sampling</strong></dt>
+<dd><table class="first last docutils citation" frame="void" id="thompson1933" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Thompson1933]</td><td>Thompson, William R. “On the likelihood that one unknown probability exceeds another in view of the evidence of two samples.” Biometrika 25.3/4 (1933): 285-294.</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands/index.html" class="btn btn-neutral float-right" title="Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fv_convert.html" class="btn btn-neutral" title="Data Conversion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

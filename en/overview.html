@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Jubatus" href="index.html"/>
+        <link rel="next" title="Quick Start" href="quickstart.html"/>
+        <link rel="prev" title="Jubatus : Distributed Online Machine Learning Framework" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scalable">Scalable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#real-time">Real-Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deep-analysis">Deep-Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#difference-from-hadoop-and-mahout">Difference from Hadoop and Mahout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_distributed.html">Distributed Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fv_convert.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="method.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubaql/index.html">JubaQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">About This Project</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>In the coming era of extremely large databases, computer science will face new challenges in real Big Data applications such as nation-wide M2M sensor network analysis, online advertising optimization for millions of consumers, and real-time security monitoring on the raw Internet traffic.</p>
+<p>In such applications, it is impractical or useless to apply ordinary approaches for data analysis on small datasets by storing all data into databases, analyzing the data on the databases as a batch-processing, and only visualizing the summarized output.</p>
+<p>In fact, the future of data analytics platform should expand to three directions at the same time, handling even bigger data, applying deep analytics, and processing in real-time. However, there has been no such analytics platform for massive data streams of continuously generated Big Data with distributed scale-out architecture. For example,
+Jubatus is the first open source platform for online distributed machine learning on the data streams of Big Data. We use a loose model sharing architecture for efficient training and sharing of machine learning models, by defining three fundamental operations; Update, Mix, and Analyze, in a similar way with the Map and Reduce operations in Hadoop.
+The point is how to reduce the size of model and the number of the Mix operations while keeping high accuracy, since Mix-ing large models for many times causes high networking cost and high latency in the distributed environment.</p>
+<p>Then our development team includes competent researchers who combine the latest advances in online machine learning, distributed computing, and randomized algorithms to provide efficient machine learning features for Jubatus. Currently, Jubatus supports basic tasks including classification, regression, clustering, nearest neighbor, outlier detection, and recommendation. A demo system for tweet categorization on fast Twitter data streams is available.</p>
+<p>Jubatus is the first open source platform for online distributed machine learning on the data streams of Big Data.</p>
+<p>Jubatus uses a loose model sharing architecture for efficient training and sharing of machine learning models, by defining three fundamental operations; Update, Mix, and Analyze, in a similar way with the Map and Reduce operations in Hadoop.</p>
+<p>Our development team includes competent researchers who combine the latest advances in online machine learning, distributed computing, and randomized algorithms to provide efficient machine learning features for Jubatus.
+Currently, Jubatus supports basic tasks including classification, regression, and recommendation.</p>
+<div class="section" id="scalable">
+<h2>Scalable<a class="headerlink" href="#scalable" title="Permalink to this headline">¶</a></h2>
+<p>Jubatus supports scalable machine learning processing. It can handle 100000 or more data per second using commodity hardware clusters. It is designed for clusters of commodity, shared-nothing hardware.</p>
+</div>
+<div class="section" id="real-time">
+<h2>Real-Time<a class="headerlink" href="#real-time" title="Permalink to this headline">¶</a></h2>
+<p>Jubatus updates a model instantaneously just after receiving a data, and it analyze the data instantaneously</p>
+</div>
+<div class="section" id="deep-analysis">
+<h2>Deep-Analysis<a class="headerlink" href="#deep-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Jubatus supports most tasks for deep analysis, including classification, regression, nearest neighbor, recommendation, anomaly detection, clustering, cluster analysis, simple statistics, and graph analysis,</p>
+</div>
+<div class="section" id="difference-from-hadoop-and-mahout">
+<h2>Difference from Hadoop and Mahout<a class="headerlink" href="#difference-from-hadoop-and-mahout" title="Permalink to this headline">¶</a></h2>
+<p>There many similar points between Hadoop/Mahout and Jubatus. These are scalable and run on commodity hardware.
+However, Hadoop is not equipped with sophisticated machine learning algorithms since most of the algorithms do not fit its MapReduce paradigm. Though Apache Mahout is also a Hadoop-based machine learning platform, online processing of data streams is still out of the scope.</p>
+<p>Jubatus processes data in online manner, and achieve high throughput and low latency.
+To achieve these features together, Jubatus uses a unique loosely model synchronization for scale out and fast model sharing in distributed environments.</p>
+<p>Jubatus processes all data in memory, and focus on operations for data analysis.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Jubatus : Distributed Online Machine Learning Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

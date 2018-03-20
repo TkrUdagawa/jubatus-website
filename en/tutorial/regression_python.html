@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Jubatus" href="../index.html"/>
+        <link rel="up" title="Regression" href="regression.html"/>
+        <link rel="next" title="Graph" href="graph.html"/>
+        <link rel="prev" title="Regression" href="regression.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="../_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">Basic Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classifier.html">Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly.html">Anomaly</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="regression.html">Regression</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="regression.html#abstract-of-sample-program">Abstract of sample program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regression.html#processing-flow">Processing flow</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="regression.html#sample-program">Sample Program</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html">Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stat.html">Stat</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_distributed.html">Distributed Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fv_convert.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../method.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubaql/index.html">JubaQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About This Project</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tutorial</a> &raquo;</li>
+        
+          <li><a href="regression.html">Regression</a> &raquo;</li>
+        
+      <li>Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python">
+<h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>Here we explain the sample program of Regression in Python.</p>
+<div class="section" id="source-code">
+<h2>Source_code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>In this sample program, we will explain 1) how to configure the learning-algorithms that used by Jubatus, with the example file ‘rent.json’; 2) how to train and predict by ‘jubahomes.py’ with the training data in ‘rent-data.csv’ file and the estimation data in ‘myhome.yml’ file. Here are their source codes.</p>
+<p><strong>rent.json</strong></p>
+<div class="highlight-js"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;method&quot;</span><span class="o">:</span> <span class="s2">&quot;PA&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;converter&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;num_filter_types&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;num_filter_rules&quot;</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;string_filter_types&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;string_filter_rules&quot;</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;num_types&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;num_rules&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;num&quot;</span> <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;string_types&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;string_rules&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="s2">&quot;key&quot;</span><span class="o">:</span> <span class="s2">&quot;aspect&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> <span class="s2">&quot;sample_weight&quot;</span><span class="o">:</span> <span class="s2">&quot;bin&quot;</span><span class="p">,</span> <span class="s2">&quot;global_weight&quot;</span><span class="o">:</span> <span class="s2">&quot;bin&quot;</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;parameter&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;sensitivity&quot;</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="s2">&quot;regularization_weight&quot;</span><span class="o">:</span> <span class="mf">3.402823e+38</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>jubahomes.py</strong></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="kn">from</span> <span class="nn">jubatus.common</span> <span class="kn">import</span> <span class="n">Datum</span>
+<span class="kn">from</span> <span class="nn">jubatus.regression.client</span> <span class="kn">import</span> <span class="n">Regression</span>
+<span class="kn">from</span> <span class="nn">jubatus.regression.types</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">VERSION</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_version</span><span class="p">():</span>
+  <span class="n">version_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">VERSION</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">VERSION</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>
+    <span class="n">version_string</span> <span class="o">+=</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">VERSION</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">version_string</span>
+
+<span class="k">def</span> <span class="nf">parse_options</span><span class="p">():</span>
+  <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+    <span class="s1">&#39;-a&#39;</span><span class="p">,</span>
+    <span class="n">required</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="n">help</span>     <span class="o">=</span> <span class="s1">&#39;analyze data file (YAML)&#39;</span><span class="p">,</span>
+    <span class="n">metavar</span>  <span class="o">=</span> <span class="s1">&#39;FILE&#39;</span><span class="p">,</span>
+    <span class="n">dest</span>     <span class="o">=</span> <span class="s1">&#39;analyzedata&#39;</span>
+  <span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+    <span class="s1">&#39;-t&#39;</span><span class="p">,</span>
+    <span class="n">help</span>     <span class="o">=</span> <span class="s1">&#39;train data file (CSV)&#39;</span><span class="p">,</span>
+    <span class="n">metavar</span>  <span class="o">=</span> <span class="s1">&#39;FILE&#39;</span><span class="p">,</span>
+    <span class="n">dest</span>     <span class="o">=</span> <span class="s1">&#39;traindata&#39;</span>
+  <span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+    <span class="s1">&#39;-v&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;--version&#39;</span><span class="p">,</span>
+    <span class="n">action</span>   <span class="o">=</span> <span class="s1">&#39;version&#39;</span><span class="p">,</span>
+    <span class="n">version</span>  <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%(prog)s</span><span class="s1"> &#39;</span> <span class="o">+</span> <span class="n">get_version</span><span class="p">()</span>
+  <span class="p">)</span>
+  <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">args</span> <span class="o">=</span> <span class="n">parse_options</span><span class="p">()</span>
+
+  <span class="n">client</span> <span class="o">=</span> <span class="n">Regression</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9199</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+  <span class="c1"># train</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">traindata</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">traindata</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">traindata</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">traindata</span><span class="p">:</span>
+
+        <span class="c1"># skip comments</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">):</span>
+          <span class="k">continue</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">rent</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">stair</span><span class="p">,</span> <span class="n">aspect</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)))</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">Datum</span><span class="p">({</span>
+            <span class="s1">&#39;aspect&#39;</span><span class="p">:</span> <span class="n">aspect</span><span class="p">,</span>
+            <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">distance</span><span class="p">),</span>
+            <span class="s1">&#39;space&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">space</span><span class="p">),</span>
+            <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">age</span><span class="p">),</span>
+            <span class="s1">&#39;stair&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">stair</span><span class="p">)</span> <span class="p">})</span>
+        <span class="n">train_data</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">float</span><span class="p">(</span><span class="n">rent</span><span class="p">),</span> <span class="n">d</span><span class="p">]]</span>
+
+        <span class="c1"># train</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+
+    <span class="c1"># print train number</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;train ... {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+  <span class="c1"># anaylze</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">analyzedata</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">analyzedata</span><span class="p">:</span>
+    <span class="n">myhome</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">analyzedata</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">Datum</span><span class="p">({</span>
+        <span class="s1">&#39;aspect&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">myhome</span><span class="p">[</span><span class="s1">&#39;aspect&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">myhome</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;space&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">myhome</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">myhome</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;stair&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">myhome</span><span class="p">[</span><span class="s1">&#39;stair&#39;</span><span class="p">])</span>
+        <span class="p">})</span>
+    <span class="n">analyze_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">analyze_data</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;rent .... {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>myhome.yml</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># distance : distance from station (walking time in minutes)</span>
+<span class="c1"># space    : the footprint of the house (m*m)</span>
+<span class="c1"># age      : build age (year)</span>
+<span class="c1"># stair    : floors</span>
+<span class="c1"># aspect   : direction [ N / NE / E / SE / S / SW / W / NW ]</span>
+<span class="c1">#</span>
+<span class="n">distance</span> <span class="p">:</span> <span class="mi">8</span>
+<span class="n">space</span>    <span class="p">:</span> <span class="mf">32.00</span>
+<span class="n">age</span>      <span class="p">:</span> <span class="mi">15</span>
+<span class="n">stair</span>    <span class="p">:</span> <span class="mi">5</span>
+<span class="n">aspect</span>   <span class="p">:</span> <span class="s2">&quot;S&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="explanation">
+<h2>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h2>
+<p><strong>rent.json</strong></p>
+<p>This JSON file give the configuration information. Here are the meanings of the JSON fields.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>method</dt>
+<dd><p class="first last">Specify the algorithm used in regression.
+Currently, we have ‘PA’ (Passive Aggressive) only, so we specify it with ‘PA’.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>converter</dt>
+<dd><p class="first">Specify the configurations in feature converter.</p>
+<p>In this example, we will set the ‘num_rules’ and ‘string_rules’.</p>
+<p>‘num_rules’ are used to specify the extraction rules of numercial features.
+<code class="docutils literal"><span class="pre">&quot;key&quot;</span> <span class="pre">:</span> <span class="pre">&quot;*&quot;</span></code>, it means all the key are taken into consideration, <code class="docutils literal"><span class="pre">&quot;type&quot;</span> <span class="pre">:</span> <span class="pre">&quot;num&quot;</span></code>, it means the value specified will be directly used as the input for training the model.
+For example, if the “age = 2”, use 2 as the input; if the “stair = 6”, use 6 as the input.</p>
+<p class="last">‘string_rules’ are used to specify the extraction rules of string features.
+Here, <code class="docutils literal"><span class="pre">&quot;key&quot;</span> <span class="pre">:</span> <span class="pre">&quot;aspect&quot;,</span> <span class="pre">&quot;type</span> <span class="pre">:</span> <span class="pre">str&quot;,</span> <span class="pre">&quot;sample_weight</span> <span class="pre">:</span> <span class="pre">bin&quot;,</span> <span class="pre">&quot;global_weight</span> <span class="pre">:</span> <span class="pre">bin&quot;</span></code> .
+Their meaning are the ‘aspect’ is treated as a string, and used as the input feature without reform; the weight of each key-value feature is specified to be ‘1’; and the global weight of each feature is specified to be ‘1’.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>parameter</dt>
+<dd><p class="first">Specify the parameters to be passed to the algorithm.
+The method specified here is ‘PA’, with its configuration as ‘sensitivity’ and ‘regularization_weight’.</p>
+<p>‘sensitivity’ specifies the tolerable range of error. When its value increases, it becomes resistant to noise, but makes errors remain easily instead.
+‘regularization_weight’ specifies the sensitivity parameter in the learning.
+In general, when the ‘regularization_weight’ parameter is large. the model fast converges to a better model, while it is also poor at handling noise.</p>
+<p class="last">In addition, the ‘regularization_weight’ above plays various roles in different algorithms, so please be careful in configuring its values in different algorithms.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>jubahomes.py</strong></p>
+<p>We explain the learning and prediction processes.</p>
+<p>To write the Client program for Regression, we can use the Regression class defined in ‘jubatus.regression’.
+There are two methods used in this program. The ‘train’ method for learning process, and the ‘estimate’ method for prediction with the trained model.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Connect to Jubatus Server</dt>
+<dd><p class="first">Connect to Jubatus Server (Line 44)</p>
+<p class="last">Setting the IP addr, RPC port number of Jubatus Server and the unique name for task identification in Zookeeper.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Prepare the training data</dt>
+<dd><p class="first">In this sample program, only if the training data source (CSV file) is specified by the option “-t”, processes of step 2-3 is taken. Here we explain these processes.</p>
+<p>Regression puts the training data into the List of list&lt;tuple&lt;float, Datum&gt;&gt;, and sends the data to train() methods for the model training.
+In this example, the training data is generated from the CSV file that privided by a housing rental website.
+Factors in the rental information includes rent, aspect, distance, space, age and stairs.
+Figure below shows the training data. (The following are four examples from over one hundred housing info. listed in the rent-data.csv)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="13%" />
+<col width="16%" />
+<col width="16%" />
+<col width="14%" />
+<col width="13%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="7">list&lt;tuple&lt;float, Datum&gt;&gt;</th>
+</tr>
+<tr class="row-even"><th class="head" rowspan="3">label(float)</th>
+<th class="head" colspan="6">Datum</th>
+</tr>
+<tr class="row-odd"><th class="head" colspan="2">list&lt;tuple&lt;string, string&gt;&gt;</th>
+<th class="head" colspan="2">list&lt;tuple&lt;string, double&gt;&gt;</th>
+<th class="head" colspan="2">list&lt;tuple&lt;string, string&gt;&gt;</th>
+</tr>
+<tr class="row-even"><th class="head">key(string)</th>
+<th class="head">value(string)</th>
+<th class="head">key(string)</th>
+<th class="head">value(double)</th>
+<th class="head">key(string)</th>
+<th class="head">value(string)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>5.0</td>
+<td>“aspect”</td>
+<td>“SW”</td>
+<td><div class="first last line-block">
+<div class="line">“distance”</div>
+<div class="line">“space”</div>
+<div class="line">“age”</div>
+<div class="line">“stair”</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">10</div>
+<div class="line">20.04</div>
+<div class="line">12</div>
+<div class="line">1</div>
+</div>
+</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>6.3</td>
+<td>“aspect”</td>
+<td>“N”</td>
+<td><div class="first last line-block">
+<div class="line">“distance”</div>
+<div class="line">“space”</div>
+<div class="line">“age”</div>
+<div class="line">“stair”</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">8</div>
+<div class="line">21.56</div>
+<div class="line">23</div>
+<div class="line">2</div>
+</div>
+</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>7.5</td>
+<td>“aspect”</td>
+<td>“SE”</td>
+<td><div class="first last line-block">
+<div class="line">“distance”</div>
+<div class="line">“space”</div>
+<div class="line">“age”</div>
+<div class="line">“stair”</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">25</div>
+<div class="line">22.82</div>
+<div class="line">23</div>
+<div class="line">4</div>
+</div>
+</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>9.23</td>
+<td>“aspect”</td>
+<td>“S”</td>
+<td><div class="first last line-block">
+<div class="line">“distance”</div>
+<div class="line">“space”</div>
+<div class="line">“age”</div>
+<div class="line">“stair”</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">10</div>
+<div class="line">30.03</div>
+<div class="line">0</div>
+<div class="line">2</div>
+</div>
+</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>tuple&lt;float, Datum&gt; contains 2 fields, “Datum” and the “label”.
+“Datum” is composed of key-value data which could be processed by Jubatus, and there are 3 types of key-value data format.
+In the first type, both the “key” and “value” are in string format (string_values); in the second one, the “key” is in string format, but the “value” is in numerical format (num_values); the last one, the “key” and “value” are in string format(biunary_values), but the “value” is stored binary data.
+These three types are represented in list&lt;tuple&lt;string, string&gt;&gt;, list&lt;tuple&lt;string, double&gt;&gt; and list&lt;tuple&lt;string, string&gt;&gt;, respectively.</p>
+<div class="line-block">
+<div class="line">Please have a view of the first data in this table as an example. Because the “aspect” is in string format, it is stored in the first list of the list&lt;tuple&lt;string, string&gt;&gt;.</div>
+<div class="line">in which, the key is set as “aspect”, value is set as “SW”.</div>
+<div class="line">Because other items are numerical, they are stored in the list of the list&lt;tuple&lt;string, double&gt;&gt;, in which</div>
+<div class="line">the first list’s key is set as “distance” and value is set as “10”,</div>
+<div class="line">the second list’s key is set as “space” and value is set as “20.04”,</div>
+<div class="line">the third list’s key is set as “age” and value is set as “15”,</div>
+<div class="line">the fourth list’s key is set as “stair” and value is set as “1”.</div>
+</div>
+<p>The Datum of these 5 lists is appended with a label of “5.0”, as its rent, and forms an instance of tuple&lt;float, Datum&gt; which retains the rent (of 5.0 * 10,000) and its corresponding housing condition info.
+Thus, the housing rental data are generated in the format of (tuple&lt;float, Datum&gt;) list, as the training data to be used.</p>
+<p>Here is the detailed process for making the training data in this sample.</p>
+<p>Next, read the source file (CSV file) of the training data line by line (Line 49-67).
+Split the data read from each line in CSV file, by the ‘,’ mark (Line 57).</p>
+<p class="last">The string items and double items are stored into the Datum consturctor of as a dictionary object (Line 58-63), respectively.
+Finally, the Datum is appended with the rent label, so as to be used as one piece of training data (argument ‘train’ in Line 64).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Model Training (update learning model)</dt>
+<dd><p class="first last">Input the training data generated in step.2 into the train() method (Line 67).
+The parameter specifies the train_data generated in step.2.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Prepare the prediction data</dt>
+<dd><p class="first">Prepare the prediction data in the similar way of training Datum creation.
+Here, we generate the data for prediction by using the YAML file (please download the library <a class="reference external" href="http://pyyaml.org/">PyYaml</a> )
+YAML is one kind of data format, in which objects and structure data are serialized.</p>
+<p>Read the YAML file (myhome.yml) by yaml.load() and get the return value in dict type (Line 74).
+Generate the prediction Datum by using the simliar process as in step 2 (Line 75-81).</p>
+<p class="last">Add the Datum into the prediction data list, and send it into the estimate() method in “Regression” for prediction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Prediction based on trained model</dt>
+<dd><p class="first last">The prediction results are returned as a list by the estimate() method (Line 83).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Output the result</dt>
+<dd><p class="first last">The prediction results are returned in the same order of the prediction data. (In this sample, only one prediction data is used, thus only one result is returned.)
+The result is rounded at 2nd decimal for output, because it is in Float type (Line 85).</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="run-the-sample-program">
+<h2>Run the sample program<a class="headerlink" href="#run-the-sample-program" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>For Jubatus Server</dt>
+<dd><p class="first">start “jubaregression” process.</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span>$ jubaregression --configpath rent.json
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>For Jubatus Client</dt>
+<dd><p class="first">Specify the option by using the command below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python jubahomes.py -t ../dat/rent-data.csv -a ../dat/myhome.yml
+
+  -t ：CSV file name (if there is training data)
+  -a ：YML file name (required)
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">...</span> <span class="mi">145</span>
+<span class="n">rent</span> <span class="o">....</span> <span class="mf">9.9</span>
+</pre></div>
+</div>
+<p>You can change the myhome.yaml file to predict housing rent under various conditions.</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span>$ edit ../dat/myhome.yml
+$ python jubahomes.py -a ../dat/myhome.yml
+$ edit ../dat/myhome.yml
+$ python jubahomes.py -a ../dat/myhome.yml
+ :
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graph.html" class="btn btn-neutral float-right" title="Graph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="regression.html" class="btn btn-neutral" title="Regression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

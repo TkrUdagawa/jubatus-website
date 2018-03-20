@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CREATE MODEL &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Jubatus" href="../index.html"/>
+        <link rel="up" title="JubaQL Syntax" href="jubaql_syntax.html"/>
+        <link rel="next" title="CREATE STREAM FROM SELECT" href="syntax_create_stream_select.html"/>
+        <link rel="prev" title="CREATE DATASOURCE" href="syntax_create_datasource.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="../_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_distributed.html">Distributed Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fv_convert.html">Data Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../method.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/index.html">Developer’s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">JubaQL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">JubaQL Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">JubaQL Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">JubaQL Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="jubaql_syntax.html">JubaQL Syntax</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_datasource.html">CREATE DATASOURCE</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CREATE MODEL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#explanation">Explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_stream_select.html">CREATE STREAM FROM SELECT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_stream_analyze.html">CREATE STREAM FROM ANALYZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_stream_window.html">CREATE STREAM FROM SLIDING WINDOW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_function.html">CREATE FUNCTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_create_trigger.html">CREATE TRIGGER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_update_model.html">UPDATE MODEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_analyze.html">ANALYZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_start.html">START PROCESSING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_stop.html">STOP PROCESSING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_status.html">STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax_shutdown.html">SHUTDOWN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About This Project</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">JubaQL</a> &raquo;</li>
+        
+          <li><a href="jubaql_syntax.html">JubaQL Syntax</a> &raquo;</li>
+        
+      <li>CREATE MODEL</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-model">
+<h1>CREATE MODEL<a class="headerlink" href="#create-model" title="Permalink to this headline">¶</a></h1>
+<p>Syntax:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="p">{</span> <span class="n">RECOMMENDER</span> <span class="o">|</span> <span class="n">CLASSIFIER</span> <span class="o">|</span> <span class="n">ANOMALY</span> <span class="p">}</span> <span class="n">MODEL</span>
+<span class="n">model_name</span> <span class="p">[</span> <span class="p">({</span> <span class="n">label</span> <span class="o">|</span> <span class="nb">id</span> <span class="p">}:</span> <span class="n">id_col</span><span class="p">)</span> <span class="p">]</span> <span class="n">AS</span>
+<span class="n">col_spec</span> <span class="p">[</span> <span class="n">WITH</span> <span class="n">convert_function</span> <span class="p">]</span> <span class="p">[,</span> <span class="o">...</span> <span class="p">]</span>
+<span class="n">CONFIG</span> <span class="s1">&#39;json_string&#39;</span>
+
+<span class="n">where</span><span class="p">:</span> <span class="n">col_spec</span> <span class="o">=</span> <span class="n">wildcard</span> <span class="o">|</span> <span class="n">col_name</span>
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jubaql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">CLASSIFIER</span> <span class="n">MODEL</span> <span class="bp">cls</span> <span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="n">label</span><span class="p">)</span> <span class="n">AS</span>
+        <span class="n">name</span> <span class="n">WITH</span> <span class="n">unigram</span>
+        <span class="n">CONFIG</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;AROW&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;regularization_weight&quot;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">}}</span>
+<span class="n">CREATE</span> <span class="n">MODEL</span> <span class="p">(</span><span class="n">started</span><span class="p">)</span>
+
+<span class="n">jubaql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">RECOMMENDER</span> <span class="n">MODEL</span> <span class="n">reco</span> <span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">名前</span><span class="p">)</span> <span class="n">AS</span> <span class="o">*</span>
+        <span class="n">CONFIG</span> <span class="s1">&#39;{&quot;method&quot;: &quot;inverted_index&quot;,</span>
+          <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{}}</span><span class="s1">&#39;</span>
+<span class="n">CREATE</span> <span class="n">MODEL</span> <span class="p">(</span><span class="n">started</span><span class="p">)</span>
+
+<span class="n">jubaql</span><span class="o">&gt;</span> <span class="n">CREATE</span> <span class="n">CLASSIFIER</span> <span class="n">MODEL</span> <span class="n">test</span> <span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="n">country</span><span class="p">)</span> <span class="n">AS</span>
+        <span class="n">name</span> <span class="n">WITH</span> <span class="n">bigram</span><span class="p">,</span>
+        <span class="n">photo</span> <span class="n">WITH</span> <span class="n">jpeganalyze</span>
+        <span class="n">CONFIG</span> <span class="s1">&#39;{&quot;method&quot;: &quot;AROW&quot;,</span>
+          <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;regularization_weight&quot;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">}}</span><span class="s1">&#39;</span>
+<span class="n">CREATE</span> <span class="n">MODEL</span> <span class="p">(</span><span class="n">started</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="explanation">
+<h2>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">MODEL</span></code> defines a Jubatus model to be used for training. It is assumed that the data that will be used for training is well-typed row-column-shaped data.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">model_name</span></code> is a user-defined string that will identify this model later on.</li>
+<li><code class="docutils literal"><span class="pre">label</span> <span class="pre">|</span> <span class="pre">id</span></code> must be <code class="docutils literal"><span class="pre">label</span></code> for a CLASSIFIER model and <code class="docutils literal"><span class="pre">id</span></code> for a RECOMMENDER model. The clause must be omitted for an ANOMALY model.</li>
+<li><code class="docutils literal"><span class="pre">id_col</span></code> is the name of the column whose value will become the <code class="docutils literal"><span class="pre">id</span></code> parameter of the <code class="docutils literal"><span class="pre">update_row(id,</span> <span class="pre">row)</span></code> RPC method or the <code class="docutils literal"><span class="pre">label</span></code> of the labeled datum passed to the <code class="docutils literal"><span class="pre">train(data)</span></code> RPC method, depending on the model type.</li>
+<li><code class="docutils literal"><span class="pre">col_spec</span></code> points to one or multiple columns that will be converted with either a Jubatus built-in function (if one exists) or a previously defined FEATURE FUNCTION named <code class="docutils literal"><span class="pre">convert_function</span></code>.
+If a conversion function is not specified, it defaults to <code class="docutils literal"><span class="pre">num</span></code> for numeric values and <code class="docutils literal"><span class="pre">str</span></code> for anything else. A <code class="docutils literal"><span class="pre">col_spec</span></code> can have one of the following forms:<ul>
+<li>It can be a single column name.
+In that case, <code class="docutils literal"><span class="pre">convert_function</span></code> must be a unary function and will be called with the value of that column.</li>
+<li>It can be a column wildcard of the form <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">*suffix</span></code> or <code class="docutils literal"><span class="pre">prefix*</span></code> and then means all columns with a name that matches that wildcard description <em>and</em> that have not been mentioned in any previous clause.
+In that case, <code class="docutils literal"><span class="pre">convert_function</span></code> must be a unary function and will be called for every matching column with the value of that column.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">json_string</span></code> is a JSON configuration string like it would normally be contained in the file passed to Jubatus at startup.
+However, it should <em>not</em> contain a <code class="docutils literal"><span class="pre">&quot;converter&quot;</span></code> part.</li>
+</ul>
+<p>After a <code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">MODEL</span></code> statement has been processed successfully, the user can use the specified <code class="docutils literal"><span class="pre">model_name</span></code> in other statements.</p>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>It is not specified whether the Jubatus instance will be launched right away or later. Therefore, the successful execution of this command only indicates that the syntax is correct; it does not say anything about whether startup was successful.</li>
+<li>Feature functions return <code class="docutils literal"><span class="pre">Map[String,</span> <span class="pre">Any]</span></code> where actually the <code class="docutils literal"><span class="pre">Any</span></code> part should be a numeric type or a string. The map key will become a part of the key for the Jubatus datum. Say that a function with the name <code class="docutils literal"><span class="pre">product</span></code> is fed with values from the column <code class="docutils literal"><span class="pre">height</span></code> and returns a <code class="docutils literal"><span class="pre">Map(&quot;val&quot;</span> <span class="pre">-&gt;</span> <span class="pre">80)</span></code>, then the Jubatus datum will have an entry in <code class="docutils literal"><span class="pre">num_values</span></code> that looks like: <code class="docutils literal"><span class="pre">&quot;product#height#val&quot;:</span> <span class="pre">80</span></code>.</li>
+<li>When a column that is referenced as <code class="docutils literal"><span class="pre">label</span></code>/<code class="docutils literal"><span class="pre">id</span></code> or in a conversion specification does not exist in the (inferred or explicitly declared) schema of a batch of the input stream <em>and</em> the batch is non-empty, <code class="docutils literal"><span class="pre">UPDATE</span> <span class="pre">MODEL</span></code> or <code class="docutils literal"><span class="pre">CREATE</span> <span class="pre">STREAM</span> <span class="pre">FROM</span> <span class="pre">ANALYZE</span></code> processing of that batch and therefore the whole process will fail after retrying <code class="docutils literal"><span class="pre">spark.task.maxFailures</span></code> times.
+An empty batch with a mismatching schema does not cause a failure, though.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="syntax_create_stream_select.html" class="btn btn-neutral float-right" title="CREATE STREAM FROM SELECT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="syntax_create_datasource.html" class="btn btn-neutral" title="CREATE DATASOURCE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>分散モード &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="genindex.html"/>
+        <link rel="search" title="検索" href="search.html"/>
+    <link rel="top" title="Jubatus" href="index.html"/>
+        <link rel="next" title="アルゴリズム" href="method.html"/>
+        <link rel="prev" title="Stat チュートリアル (Python)" href="tutorial/stat_python.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview/index.html">Jubatus Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">クイックスタート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">チュートリアル</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">分散モード</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jubatus">Jubatusを分散モードで動かす前に</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">分散モード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">クラスタの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="method.html">アルゴリズム</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fv_convert.html">データ変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers/index.html">開発者ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jubaql/index.html">JubaQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about/index.html">プロジェクトについて</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>分散モード</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>分散モード<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>本項では、Jubatusを複数のサーバで分散させた環境構築を説明します。</p>
+<p>なお、本項を始める前に、スタンドアローン構成での構築を試すことをお勧めします。</p>
+<div class="section" id="jubatus">
+<h2>Jubatusを分散モードで動かす前に<a class="headerlink" href="#jubatus" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>JubatusではZooKeeperを用いて複数のサーバプロセス間を協調動作させることで、分散処理を行うことができます。</p>
+<p>ZooKeeperは分散環境で動作するソフトウェアを運用するうえでの困難を低減するためのサービスを提供します。</p>
+<p>Jubatusを分散環境で動作させる際、ZooKeeperが利用できない状況は致命的です。
+ZooKeeperを高い信頼性で動作させるために、以下のことを注意します。
+詳細は <a class="reference external" href="http://oss.infoscience.co.jp/hadoop/zookeeper/docs/current/">ZooKeeperのドキュメント</a> を参照して下さい。</p>
+<ol class="arabic simple">
+<li>奇数台のマシンによるクラスタ構成(アンサンブル)で運用します。</li>
+<li>ZooKeeperのパフォーマンスが低下し、Jubatusの動作が不安定になることを避けるため、ZooKeeper専用のマシンを用意することを推奨します。</li>
+</ol>
+<p>ここでは、1台のマシン内に複数のサーバプロセスを動作させる方法（分散処理）と3台のマシンで1サーバプロセスずつ動作させる方法（クラスタ構成）を説明していきます。</p>
+</div>
+<div class="section" id="id2">
+<h2>分散モード<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="arabic simple">
+<li>ZooKeeperのインストール</li>
+</ol>
+<blockquote>
+<div><p>Apache ZooKeeperの <a class="reference external" href="http://www.apache.org/dyn/closer.cgi/zookeeper/">ダウンロードサイト</a> からZooKeeperを取得します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
+$ tar xvf zookeeper-3.4.11.tar.gz
+</pre></div>
+</div>
+<p>※ プロキシを経由している場合は以下の1行を /etc/wgetrc に追記してください。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo vi /etc/wgetrc
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http_proxy</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">username</span><span class="p">:</span><span class="n">password</span><span class="nd">@proxy</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">port</span><span class="o">/</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>ZooKeeperの設定ファイル（zoo.cfg）の作成</li>
+</ol>
+<blockquote>
+<div><p>zookeeper-3.4.11/conf 配下にサンプルの設定ファイルがありますので、そちらをコピーして作成してください。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo cp /path/to/zookeeper/conf/zoo_sample.cfg /path/to/zookeeper/conf/zoo.cfg
+</pre></div>
+</div>
+<p>ここでは、zoo.cfgの各設定項目の説明は省きます。</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>ZooKeeperの起動</li>
+</ol>
+<blockquote>
+<div><p>ZooKeeperは以下のようにして起動します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo /path/to/zookeeper/bin/zkServer.sh start
+JMX enabled by default
+Using config: /path/to/zookeeper/bin/../conf/zoo.cfg
+Starting zookeeper ... STARTED
+</pre></div>
+</div>
+<p>以降では、ZooKeeperがlocalhost:2181で動作していると仮定します。この設定はzoo.cfgで変更可能です。</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>設定ファイルをZooKeeperに設定</li>
+</ol>
+<blockquote>
+<div><p>分散環境では、事前に設定ファイルをZooKeeperに登録します。登録にはjubaconfigというツールを使用します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ jubaconfig --cmd write --zookeeper=localhost:2181 --file jubatus-example/shogun/shogun.json --name shogun --type classifier
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Jubatus Proxyの起動</li>
+</ol>
+<blockquote>
+<div><p>Jubatus ProxyはRPCリクエストをクライアントからサーバに中継(プロキシ)します。
+分散環境では、クライアントからのRPCリクエストを直接サーバに送るのではなく、一度Proxyに送ります。</p>
+<p>Jubatus Proxyは各Jubatusサーバの種類ごとに提供されています。
+shogunに対応するProxyはjubaclassifier_proxyとなります。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ jubaclassifier_proxy --zookeeper=localhost:2181 --rpc-port=9198
+</pre></div>
+</div>
+<p>これにより、jubaclassifier_proxyは、TCP 9198番ポートでRPCリクエストを待ち受けます。</p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>サーバプロセスの起動</li>
+</ol>
+<blockquote>
+<div><p>Jubatusサーバを分散環境で開始するには、–nameと–zookeeperオプションをサーバの起動時に指定します。
+同じ–nameで起動されたサーバプロセスは同じクラスタに所属し、お互いに協調動作します。</p>
+<p>一つのマシン内で複数のサーバを起動する場合は、各サーバプロセスごとにポート番号を変える必要があることに注意してください。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ jubaclassifier --rpc-port=9180 --name=shogun --zookeeper=localhost:2181 &amp;
+$ jubaclassifier --rpc-port=9181 --name=shogun --zookeeper=localhost:2181 &amp;
+$ jubaclassifier --rpc-port=9182 --name=shogun --zookeeper=localhost:2181 &amp;
+</pre></div>
+</div>
+<p>Jubatusサーバが分散環境で開始する際に、ZooKeeperシステムの中にノードが作成されます。
+ZooKeeperのクライアント（zkCli.sh）を用いて、3つのプロセスがZooKeeperシステムに登録されていることが確認できます。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo /path/to/zookeeper/bin/zkCli.sh -server localhost:2181
+[zk: localhost:2181(CONNECTED) 0] ls /jubatus/actors/classifier/shogun/nodes
+[XXX.XXX.XXX.XXX_9180, XXX.XXX.XXX.XXX_9181, XXX.XXX.XXX.XXX_9182]
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>プログラムの実行</li>
+</ol>
+<blockquote>
+<div><p>今回はサーバではなくProxyに接続するため、ポート番号にはjubaclassifier_proxyで指定したポート番号を指定します。
+また、分散環境では、RPCリクエストをProxyへ送る際にクラスタ名を指定する必要があります。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python shogun.py
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>ZooKeeperの停止</li>
+</ol>
+<blockquote>
+<div><p>ZooKeeperを停止する場合は以下のようにして停止します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo /path/to/zookeeper/bin/zkServer.sh stop
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>クラスタの設定<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>Jubatusは各種プロセスを一括管理するための仕組みを備えています。
+今、それぞれのサーバに対して、以下の表に対応したプロセスを起動させることを考えます。</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">IP Address</th>
+<th class="head">Processes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>192.168.0.1</td>
+<td>Terminal</td>
+</tr>
+<tr class="row-odd"><td>192.168.0.11</td>
+<td><div class="first last line-block">
+<div class="line">jubaclassifier - 1</div>
+<div class="line">jubaclassifier_proxy/client - 1</div>
+<div class="line">ZooKeeper - 1</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>192.168.0.12</td>
+<td><div class="first last line-block">
+<div class="line">jubaclassifier - 2</div>
+<div class="line">jubaclassifier_proxy/client - 2</div>
+<div class="line">ZooKeeper - 2</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td>192.168.0.13</td>
+<td><div class="first last line-block">
+<div class="line">jubaclassifier - 3</div>
+<div class="line">jubaclassifier_proxy/client - 3</div>
+<div class="line">ZooKeeper - 3</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple">
+<li>ZooKeeperの設定</li>
+</ol>
+<blockquote>
+<div><p>複数台でZooKeeperを起動する場合、それぞれのzoo.cfgに設定を追加します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo vi /path/to/zookeeper/conf/zoo.cfg
+
+server.1=192.168.0.11:2888:3888
+server.2=192.168.0.12:2888:3888
+server.3=192.168.0.13:2888:3888
+</pre></div>
+</div>
+<p>また、zoo.cfgのdataDir=に指定したフォルダにmyidファイルを作成する必要があります。</p>
+<p>myidファイルの中身は上記の server.n=xxx.xxx.x.xxx:xxxx:xxxx の n に対応する数字を記述します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd /tmp/zookeeper         （dataDir=に指定しているディレクトリ）
+$ sudo vi myid
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>ZooKeeperの起動</li>
+</ol>
+<blockquote>
+<div><p>ZooKeeperサーバを起動します(これらの間でアンサンブル構成を行う必要があります)。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[192.168.0.11]$ bin/zkServer.sh start
+[192.168.0.12]$ bin/zkServer.sh start
+[192.168.0.13]$ bin/zkServer.sh start
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Jubatus Proxyの起動</li>
+</ol>
+<blockquote>
+<div><p>jubaclassifier_proxyプロセスを起動します。jubaclassifier_proxyはTCP 9199番ポートをデフォルトで使用します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[192.168.0.11]$ jubaclassifier_proxy --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181
+[192.168.0.12]$ jubaclassifier_proxy --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181
+[192.168.0.13]$ jubaclassifier_proxy --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Jubavisor:サーバプロセス管理のエージェント</li>
+</ol>
+<blockquote>
+<div><p>jubavisorはサーバプロセスを管理するためのエージェントプロセスです。</p>
+<p>jubavisorを使うことで、Jubatusサーバの各プロセスを、操作用コマンドであるjubactlからのRPCリクエストによって管理することができます。
+jubavisorはTCP 9198番ポートをデフォルトで使用します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[192.168.0.11]$ jubavisor --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181 --daemon
+[192.168.0.12]$ jubavisor --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181 --daemon
+[192.168.0.13]$ jubavisor --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181 --daemon
+</pre></div>
+</div>
+<p>jubactlからjubavisorに命令を送信してみましょう。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[192.168.0.1]$ jubactl -c start  --server=jubaclassifier --type=classifier --name=shogun --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181
+ sending start / jubaclassifier/shogun to 192.168.0.11_9198...ok.
+ sending start / jubaclassifier/shogun to 192.168.0.12_9198...ok.
+ sending start / jubaclassifier/shogun to 192.168.0.13_9198...ok.
+[192.168.0.1]$ jubactl -c status --server=jubaclassifier --type=classifier --name=shogun --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181
+active jubaclassifier_proxy members:
+ 192.168.0.11_9199
+ 192.168.0.12_9199
+ 192.168.0.13_9199
+active jubavisor members:
+ 192.168.0.11_9198
+ 192.168.0.12_9198
+ 192.168.0.13_9198
+active shogun members:
+ 192.168.0.11_9200
+ 192.168.0.12_9200
+ 192.168.0.13_9200
+</pre></div>
+</div>
+<p>membersの表示から、サーバが起動していることが分かります。
+複数のホストでクライアントを同時に動かしてみましょう。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python shogun.py
+</pre></div>
+</div>
+<p>なお、Jubatusサーバの停止もjubactlから行うことができます。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[192.168.0.1]$ jubactl -c stop --server=jubaclassifier --type=classifier --name=shogun --zookeeper 192.168.0.11:2181,192.168.0.12:2181,192.168.0.13:2181
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="method.html" class="btn btn-neutral float-right" title="アルゴリズム" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial/stat_python.html" class="btn btn-neutral" title="Stat チュートリアル (Python)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

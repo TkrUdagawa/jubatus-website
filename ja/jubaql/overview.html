@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JubaQL Overview &mdash; Jubatus</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="Jubatus" href="../index.html"/>
+        <link rel="up" title="JubaQL" href="index.html"/>
+        <link rel="next" title="JubaQLアーキテクチャ" href="architecture.html"/>
+        <link rel="prev" title="JubaQL クイックスタート" href="quickstart.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Jubatus
+          
+
+          
+            
+            <img src="../_static/title.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Jubatus Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">クイックスタート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">チュートリアル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_distributed.html">分散モード</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../method.html">アルゴリズム</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fv_convert.html">データ変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/index.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips_faqs/index.html">Tips and FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/index.html">開発者ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jubakit/index.html">Jubakit</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">JubaQL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html">JubaQL クイックスタート</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">JubaQL Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jubaql">機械学習とJubaQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">JubaQLの目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">JubaQLの機能</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">JubaQLアーキテクチャ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jubaql_syntax.html">JubaQL Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">プロジェクトについて</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jubatus</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">JubaQL</a> &raquo;</li>
+        
+      <li>JubaQL Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jubaql-overview">
+<h1>JubaQL Overview<a class="headerlink" href="#jubaql-overview" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="jubaql">
+<h2>機械学習とJubaQL<a class="headerlink" href="#jubaql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ビジネス上の需要からオンライン機械学習を用いるユーザが必要としているものは大きく5つのステップに分けられます。</p>
+<ol class="arabic simple">
+<li>データの収集</li>
+<li>仮説の構築</li>
+<li>仮説の検証</li>
+<li>仮説のモデル化</li>
+<li>モデルに基づいたオンラインシステム構築</li>
+</ol>
+<p>Jubatus には様々な機能が搭載されていますが、それらを正しく利用するためにはやや煩雑な準備が必要になります。
+Jubatus は上記の5つのステップの中では「仮説のモデル化」と「モデルに基づいたオンラインシステム構築」のフェーズにおいては有力な手段となり得ました。
+しかし、その前のステップすべてに於いて未だに各ユーザの努力が必要でした。</p>
+<p>そこで、SQL-like なクエリとして機械学習を実行可能とすることで、非プログラマかつSQLを扱える方々に対するJubatus導入の閾値を下げるために、SQL/CQLベースのDSL（ドメイン特化言語）としてJubaQLを開発しました。</p>
+</div>
+<div class="section" id="id1">
+<h2>JubaQLの目的<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>JubaQLとは、機械学習向けのストリーム処理・バッチ処理を実現するSQL/CQLベースのDSL（ドメイン特化言語）及びその処理系です。
+JubaQLは大きく分けて以下の2つを実現することを目標にしています。</p>
+<ol class="arabic simple">
+<li>SQL-Likeなインターフェースによる機械学習の実行</li>
+<li>バッチ処理とストリーム処理の統合的な処理</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>JubaQLの機能<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>JubaQL で提供されている主要な機能は以下の5つです。</p>
+<blockquote>
+<div><p>・ JubatusのアルゴリズムをCQL/SQLを介して実行でき、かつ処理をスケールさせる仕組み</p>
+<blockquote>
+<div>JubaQLはSQL-likeなシンタックスをベースとし、機械学習の観点で拡張された言語です。
+習得、利用が容易であり、親しみやすい言語を目指して作られています。</div></blockquote>
+<p>・ 継続的にデータを投入し、処理し続けることの出来る仕組み</p>
+<blockquote>
+<div>JubaQLはストリームデータを容易に再処理できます。
+すなわち、(例えばHDFSなどに)蓄積されたストリームデータを処理し始め、そこからシームレスに(例えばApach Kafkaから受け取る)最新のストリームデータを継続的に処理できます。
+これによって、結果に再現性が得られ、またパラメータチューニングが可能になります。</div></blockquote>
+<p>・ カスケード処理</p>
+<blockquote>
+<div>クライアント側でデータに変更を加えずに、サーバ側でストリームデータを加工することができます。
+あるモデルから得られた分析結果を入力として他のモデルに与えることが、ユーザの介在やクライアントとサーバ間の通信を必要とせずに実現できます。</div></blockquote>
+<p>・ トリガーベースのアクション</p>
+<blockquote>
+<div>ユーザ定義関数(UDF = user-defined function)を定義することができ、ストリームデータに対して特定の条件が満たされたときにそれを実行するトリガーとして設定することができます。
+これによって、特定のイベントが観測されたときに、データをデータベースに格納したり通知することがサーバをポーリングすることなく実現できます。</div></blockquote>
+<p>・ 時系列データ分析</p>
+<blockquote>
+<div>ストリームデータに対してタイムウィンドウを定義することで、そのウィンドウに対して特徴量を取得し、それを使ってJubatusで学習やクエリすることが出来ます。
+単一のイベントではなく、順に出現する複数のイベントに対する分析(例. 位置情報の追跡)が可能になります。</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="architecture.html" class="btn btn-neutral float-right" title="JubaQLアーキテクチャ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral" title="JubaQL クイックスタート" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2011-2018 PFN &amp; NTT.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
